@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo se analiza un proyecto — SonarQube · Curso 1 h</title>
+<link rel="stylesheet" href="assets/curso.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso 1 h</span></a>
+  <span class="pista"><i style="width:33.3%"></i></span>
+  <span class="cuenta">3 / 9</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<main class="slide">
+
+<span class="min">18–32 min</span>
+<h1>Cómo se analiza un proyecto</h1>
+<p class="lede">Un solo comando lo pone en marcha.</p>
+
+<pre><code><span class="prompt">PS&gt;</span> mvn clean verify sonar:sonar ``
+    <span class="k">"-Dsonar.host.url=TU-SONARQUBE"</span> ``
+    <span class="k">"-Dsonar.token=squ_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></code></pre>
+
+<p class="small">Las comillas son obligatorias en PowerShell: sin ellas la
+<code>//</code> de la URL parte el argumento y Maven no encuentra el plugin.</p>
+
+<ol class="steps">
+  <li><h4>Compilar y testear</h4>
+    <p>Si un test falla, Maven se para aquí. No hay análisis. El build es el primer gate.</p></li>
+  <li><h4>JaCoCo escribe el informe</h4>
+    <p>Si no se llega, no existe <code>jacoco.xml</code> y Sonar verá 0 %.</p></li>
+  <li><h4>El analyzer revisa el código</h4>
+    <p>Aplica las reglas activas y monta los hallazgos con su ubicación exacta.</p></li>
+  <li><h4>Se envía al servidor</h4>
+    <p>Con la URL y el token. El token identifica quién analiza: no se guarda en el proyecto.</p></li>
+  <li><h4>El servidor guarda y evalúa el gate</h4>
+    <p>Compara con el análisis anterior para saber qué es nuevo y pinta el resultado.</p></li>
+</ol>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="02-vocabulario.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">02 · Vocabulario</span>
+  </a>
+  <a class="next fin" href="04-gate.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">04 · Gate y New Code</span>
+  </a>
+</nav>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>

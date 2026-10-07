@@ -1,0 +1,3 @@
+# Le dice a GitHub Pages que no procese los ficheros con Jekyll.
+# Sin esto, GitHub ignoraria cualquier fichero o carpeta que empiece por _
+# y el sitio tarda ademas bastante mas en publicarse.

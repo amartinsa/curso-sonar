@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gate, perfil y New Code — SonarQube · Curso 1 h</title>
+<link rel="stylesheet" href="assets/curso.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso 1 h</span></a>
+  <span class="pista"><i style="width:44.4%"></i></span>
+  <span class="cuenta">4 / 9</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<main class="slide">
+
+<span class="min non">Conceptos</span>
+<h1>Gate, perfil y New Code</h1>
+
+<div class="grid g2">
+  <div class="card">
+    <h4>Quality Gate</h4>
+    <p>Las <strong>condiciones</strong> que decides cumplir. Si una falla, el proyecto
+    sale en <span class="pill bad">ROJO</span>. Se asocia a cada proyecto.</p>
+  </div>
+  <div class="card">
+    <h4>Quality Profile</h4>
+    <p>El <strong>conjunto de reglas activas</strong> por lenguaje. Cambiarlo no
+    cambia el gate.</p>
+  </div>
+</div>
+
+<div class="callout ok">
+  <p>New Code: la idea que lo cambia todo.</p>
+  <p>El gate mira <strong>solo lo que ha cambiado</strong> desde el último análisis.
+  Tu proyecto puede ser un desastre heredado y pasa verde mientras <strong>no empeores</strong>.</p>
+</div>
+
+<table>
+  <thead><tr><th>Gate <code>Sonar way</code> (por defecto)</th><th>Condición</th></tr></thead>
+  <tbody>
+    <tr><td>No new issues</td><td>Cero issues nuevos</td></tr>
+    <tr><td>Security Hotspots</td><td>Hotspots nuevos revisados al 100 %</td></tr>
+    <tr><td>Coverage on New Code</td><td>≥ 80 %</td></tr>
+    <tr><td>Duplication on New Code</td><td>≤ 3 %</td></tr>
+  </tbody>
+</table>
+
+<p class="small">En el curso no usamos este gate: con defectos a propósito es
+imposible de poner verde en una hora. Se crea uno propio, <code>Curso — Demo</code>,
+con condiciones alcanzables y <strong>sin marcarlo como por defecto</strong>.</p>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="03-analisis.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">03 · Cómo se analiza</span>
+  </a>
+  <a class="next fin" href="05-demo.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">05 · La demo</span>
+  </a>
+</nav>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>

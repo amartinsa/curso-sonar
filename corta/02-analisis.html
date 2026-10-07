@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El análisis en vivo — SonarQube · Curso reducido</title>
+<link rel="stylesheet" href="../assets/curso.css">
+</head>
+<body data-home="index.html" data-end="05-cierre.html">
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso reducido</span></a>
+  <span class="pista"><i style="width:40%"></i></span>
+  <span class="cuenta">2 / 5</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<div class="tl-row">
+  <div class="tl">
+    <div class="tl-bar">
+      <a class="tl-seg t1" href="01-que-es.html"        style="--w:6"  title="Min 0–6 · Qué es SonarQube"><b>Qué es</b><i>0–6 min</i></a>
+      <a class="tl-seg t3" href="02-analisis.html" aria-current="true" style="--w:14" title="Min 6–20 · Análisis en vivo → gate en rojo"><b>Análisis</b><i>6–20 min</i></a>
+      <a class="tl-seg t2" href="03-evaluacion.html"   style="--w:13" title="Min 20–33 · Evaluación"><b>Evaluación</b><i>20–33 min</i></a>
+      <a class="tl-seg t4" href="04-corregir.html"     style="--w:20" title="Min 33–53 · Corregir en directo → verde"><b>Corregir</b><i>33–53 min</i></a>
+      <a class="tl-seg t6" href="05-cierre.html"       style="--w:7"  title="Min 53–60 · Cierre"><b>Cierre</b><i>53–60 min</i></a>
+    </div>
+  </div>
+</div>
+
+<main class="slide">
+
+  <span class="min">6–20 min</span>
+  <h1>El análisis en vivo</h1>
+
+  <ol class="steps">
+    <li><h4>Generar el token</h4>
+      <p><strong>My Account → Security → Generate Tokens</strong>.
+      <span class="pill warn">¡Atención!</span> Se muestra <strong>una sola vez</strong>.</p></li>
+    <li><h4>Lanzar el análisis</h4>
+      <p>Debe salir <code>BUILD SUCCESS</code> y <code>ANALYSIS SUCCESSFUL</code>.</p>
+      <pre><code><span class="prompt">PS&gt;</span> mvn clean verify sonar:sonar 
+        <span class="k">"-Dsonar.projectKey=clave-proyecto" </span>
+        <span class="k">"-Dsonar.projectName='nombre-proyecto'" </span>
+        <span class="k">"-Dsonar.host.url=Url-tu-servidor-Sonarqube"</span> 
+        <span class="k">"-Dsonar.token=squ_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></code></pre></li>
+    <li><h4>Ver el Quality Gate</h4>
+      <p>Sin explicar nada todavía: la cabecera ya dice qué condiciones fallan.</p></li>
+    <li><h4>Evaluar los issues</h4>
+      <p>Solucionar los issues por nivel de criticidad:
+      <strong>Critical › Bug › … › Code smell</strong>.</p></li>
+  </ol>
+
+  <h3>Ejemplos</h3>
+  <table>
+    <thead><tr><th>Código</th><th>Regla</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>equals()</code> reescrito y <code>hashCode()</code> ausente en <code>Cliente</code></td>
+        <td><code>java:S1206</code></td>
+        <td><span class="pill bad">Bug</span></td>
+      </tr>
+      <tr>
+        <td><code>MessageDigest.getInstance("MD5")</code> en <code>ServicioHuellas</code></td>
+        <td><code>java:S4790</code></td>
+        <td><span class="pill warn">Hotspot</span></td>
+      </tr>
+      <tr>
+        <td><code>tipo == "VIP"</code>, métodos largos, números mágicos, código duplicado...</td>
+        <td><code>java:S4973</code></td>
+        <td><span class="pill ok">Code smells </span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p>El gate rojo en el primer análisis no es un fallo.</p>
+    <p>Es el resultado esperado: está diciendo que algo no llega al listón.</p>
+  </div>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="01-que-es.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">01 · Qué es SonarQube</span>
+  </a>
+  <a class="next fin" href="03-evaluacion.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">03 · Evaluación</span>
+  </a>
+</nav>
+
+<script src="../assets/curso.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Práctica, paso a paso — SonarQube · Curso 1 h</title>
+<link rel="stylesheet" href="assets/curso.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso 1 h</span></a>
+  <span class="pista"><i style="width:66.7%"></i></span>
+  <span class="cuenta">6 / 9</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<main class="slide">
+
+<span class="min">42–55 min</span>
+<h1>Práctica, paso a paso</h1>
+
+<ol class="steps">
+  <li><h4>Generar el token delante de la gente</h4>
+    <p><strong>My Account → Security → Generate Tokens</strong>. Se muestra una sola vez.</p></li>
+  <li><h4>Lanzar el primer análisis</h4>
+    <p>Debe salir <code>BUILD SUCCESS</code> y <code>ANALYSIS SUCCESSFUL</code>.</p></li>
+  <li><h4>Ver el gate en rojo</h4>
+    <p>Sin explicar nada: la cabecera ya dice qué condiciones fallan. Señalarlas una a una.</p></li>
+  <li><h4>Abrir los issues de verdad</h4>
+    <p>Primero el bug en <code>Cliente.java</code>, después el hotspot en
+    <code>ServicioHuellas.java</code>, después los code smells en <code>ProcesadorPedidos</code>.</p></li>
+  <li><h4>Corregir en directo</h4>
+    <p>Añadir <code>hashCode()</code>, cambiar MD5 por SHA-256, marcar el hotspot como
+    <em>Fixed</em> y crear un test nuevo.</p></li>
+  <li><h4>Re-analizar y verlo en verde</h4>
+    <p>Con el mismo comando. Después abrir <strong>Activity</strong>: la gráfica con los
+    dos análisis, la cobertura de 26 % a 85 % y el gate de rojo a verde.</p></li>
+</ol>
+
+<pre><code><span class="prompt">PS&gt;</span> cd demo-app
+<span class="prompt">PS&gt;</span> mvn clean verify sonar:sonar <span class="k">"-Dsonar.host.url=TU-SONARQUBE"</span> <span class="k">"-Dsonar.token=squ_XXX..."</span></code></pre>
+
+<p class="small">El bloque de test que se pega en directo está en <code>GUION.md</code>,
+junto al guion minuto a minuto y el plan B.</p>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="05-demo.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">05 · La demo</span>
+  </a>
+  <a class="next fin" href="07-trampas.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">07 · Trampas</span>
+  </a>
+</nav>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trampas frecuentes — SonarQube · Curso 1 h</title>
+<link rel="stylesheet" href="assets/curso.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso 1 h</span></a>
+  <span class="pista"><i style="width:77.8%"></i></span>
+  <span class="cuenta">7 / 9</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<main class="slide">
+
+<span class="min non">Plan B</span>
+<h1>Trampas frecuentes</h1>
+
+<table>
+  <thead><tr><th>Qué pasa</th><th>Por qué</th><th>Qué mirar</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Cobertura en <strong>0 %</strong> con tests</td>
+      <td>Sonar no encuentra el informe</td>
+      <td>Log: <code>No report imported</code>. Comprueba <code>jacoco.xml</code> y <code>sonar.coverage.jacoco.xmlReportPaths</code></td>
+    </tr>
+    <tr>
+      <td>El análisis <strong>no se ejecuta</strong></td>
+      <td>Un test ha fallado</td>
+      <td>Arreglarlo y volver a lanzar</td>
+    </tr>
+    <tr>
+      <td>El gate <strong>sigue rojo</strong> tras corregir</td>
+      <td>No se re-analizó, o el hotspot sin revisar</td>
+      <td>Volver a lanzar. <em>Refresh</em> no analiza</td>
+    </tr>
+    <tr>
+      <td><strong>401</strong> o token inválido</td>
+      <td>Token caducado o mal copiado</td>
+      <td>Generar otro en <strong>My Account → Security</strong></td>
+    </tr>
+    <tr>
+      <td>El gate sale <strong>verde</strong> en el primer análisis</td>
+      <td>Apunta al gate equivocado</td>
+      <td>Project Settings → Quality Gate</td>
+    </tr>
+    <tr>
+      <td>Error de análisis Java</td>
+      <td>Falta el bytecode</td>
+      <td><code>sonar.java.binaries</code> → <code>target/classes</code></td>
+    </tr>
+    <tr>
+      <td><code>No plugin found for prefix 'sonar'</code></td>
+      <td>Falta el plugin en el <code>pom.xml</code>, o el <code>-Dsonar.host.url</code> va sin comillas</td>
+      <td>Declara <code>sonar-maven-plugin</code> con versión fija y <strong>encierra cada <code>-D</code> entre comillas</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout warn">
+  <p>El gate rojo en el primer análisis no es un fallo.</p>
+  <p>Es el resultado esperado: está diciendo que algo no llega al listón.</p>
+</div>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="06-practica.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">06 · Práctica</span>
+  </a>
+  <a class="next fin" href="08-ediciones.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">08 · Community y pago</span>
+  </a>
+</nav>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>

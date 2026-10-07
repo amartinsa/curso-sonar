@@ -1,0 +1,27 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+dependency-reduced-pom.xml
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# Sistema
+*.class
+*.log
+.DS_Store
+Thumbs.db
+
+# Credenciales: esto NUNCA se sube
+*.token
+*.pem
+.env

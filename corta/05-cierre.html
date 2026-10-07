@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cierre — SonarQube · Curso reducido</title>
+<link rel="stylesheet" href="../assets/curso.css">
+</head>
+<body data-home="index.html" data-end="05-cierre.html">
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso reducido</span></a>
+  <span class="pista"><i style="width:100%"></i></span>
+  <span class="cuenta">5 / 5</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<div class="tl-row">
+  <div class="tl">
+    <div class="tl-bar">
+      <a class="tl-seg t1" href="01-que-es.html"        style="--w:6"  title="Min 0–6 · Qué es SonarQube"><b>Qué es</b><i>0–6 min</i></a>
+      <a class="tl-seg t3" href="02-analisis.html"      style="--w:14" title="Min 6–20 · Análisis en vivo → gate en rojo"><b>Análisis</b><i>6–20 min</i></a>
+      <a class="tl-seg t2" href="03-evaluacion.html"    style="--w:13" title="Min 20–33 · Evaluación"><b>Evaluación</b><i>20–33 min</i></a>
+      <a class="tl-seg t4" href="04-corregir.html"      style="--w:20" title="Min 33–53 · Corregir en directo → verde"><b>Corregir</b><i>33–53 min</i></a>
+      <a class="tl-seg t6" href="05-cierre.html" aria-current="true" style="--w:7" title="Min 53–60 · Cierre"><b>Cierre</b><i>53–60 min</i></a>
+    </div>
+  </div>
+</div>
+
+<main class="slide">
+
+<span class="min">53–60 min</span>
+<h1>Cierre</h1>
+
+<div class="callout">
+  <p>Puntos clave</p>
+  <ul class="checklist">
+    <li>Un <strong>issue</strong> es un bug, una vulnerability, un hotspot o un code smell.</li>
+    <li>El <strong>hotspot</strong> lo cierra una persona, no la herramienta.</li>
+    <li>El gate mira <strong>lo nuevo</strong>, no el proyecto entero.</li>
+    <li>Un gate que no puedes cumplir, deja de mirarse.</li>
+  </ul>
+</div>
+
+<div class="callout warn">
+  <p>El gate rojo en el primer análisis no es un fallo.</p>
+  <p>Es el resultado esperado: la primera vez nunca es perfecto.</p>
+</div>
+
+<h3>Enlaces</h3>
+<ul>
+  <li><a href="https://docs.sonarsource.com/sonarqube-server/10.3/user-guide/quality-gates"
+    target="_blank" rel="noopener">Quality gates</a> — condiciones y <code>Sonar way</code>.</li>
+  <li><a href="https://docs.sonarsource.com/" target="_blank" rel="noopener">Documentación de SonarSource</a></li>
+</ul>
+
+<footer>
+  <span>SonarQube Community 10.4 · demo <code>demo-app</code></span>
+  <span><a href="resumen.html" target="_blank" rel="noopener">Chuleta →</a></span>
+</footer>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="04-corregir.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">04 · Corregir y re-analizar</span>
+  </a>
+  <a class="next fin" href="index.html">
+    <span class="dir">Volver</span>
+    <span class="tit">Portada e índice →</span>
+  </a>
+</nav>
+
+<script src="../assets/curso.js"></script>
+</body>
+</html>

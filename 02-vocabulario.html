@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocabulario — SonarQube · Curso 1 h</title>
+<link rel="stylesheet" href="assets/curso.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso 1 h</span></a>
+  <span class="pista"><i style="width:22.2%"></i></span>
+  <span class="cuenta">2 / 9</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<main class="slide">
+
+<span class="min">8–18 min</span>
+<h1>Vocabulario</h1>
+<p class="lede">Todo lo que encuentra es un <strong>issue</strong>, y todos los issues
+son <strong>posibles</strong> problemas de código de distinto nivel de criticidad
+que se pueden corregir. Confundirlos es el error más común al empezar.</p>
+
+<div class="grid g4">
+  <div class="card">
+    <h4>Bug <span class="pill bad">Reliability</span></h4>
+    <p>Código probablemente erróneo.</p>
+    <span class="rule"><code>equals()</code> sin <code>hashCode()</code> · posible <code>NullPointerException</code></span>
+  </div>
+  <div class="card">
+    <h4>Vulnerability <span class="pill bad">Security</span></h4>
+    <p>Código que puede provocar errores de datos.</p>
+    <span class="rule"><code>Runtime.exec("ping " + host)</code> con entrada del usuario</span>
+  </div>
+  <div class="card">
+    <h4>Security Hotspot <span class="pill warn">Revisión humana</span></h4>
+    <p>Código que debe revisar un humano: posible error de lógica o no cumple el estándar.</p>
+    <span class="rule"><code>MessageDigest.getInstance("MD5")</code></span>
+  </div>
+  <div class="card">
+    <h4>Code smell <span class="pill warn">Maintainability</span></h4>
+    <p>Código difícil de leer o mantener.</p>
+    <span class="rule"><code>tipo == "VIP"</code> en vez de <code>equals()</code> · código que nunca se ejecuta</span>
+  </div>
+</div>
+
+<p><strong>Severidad:</strong> Blocker › Critical › Major › Minor › Info. Es el impacto
+de la <em>regla</em>, no de tu proyecto.
+&nbsp;·&nbsp; <strong>Deuda técnica:</strong> tiempo estimado en arreglarlo.</p>
+
+<h3>Cobertura de test</h3>
+<p>Es el porcentaje de líneas que se <strong>ejecutan</strong> cuando corren tus tests.
+<strong>JaCoCo</strong> escribe el informe; SonarQube <strong>solo lo lee</strong>.</p>
+
+<table>
+  <thead><tr><th>Qué</th><th>Pregunta</th><th>Quién decide</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Tests</strong></td><td>¿<strong>funciona</strong>?</td><td>Maven: si falla, el build se para</td></tr>
+    <tr><td><strong>Cobertura</strong> (JaCoCo)</td><td>¿<strong>se ejecutó</strong>?</td><td>Cuenta las líneas recorridas</td></tr>
+    <tr><td><strong>SonarQube</strong></td><td>¿<strong>cumple el umbral</strong>?</td><td>Solo lee el XML</td></tr>
+  </tbody>
+</table>
+
+<div class="callout warn">
+  <p>La cobertura no mide que funcione.</p>
+  <p>Un test que llama al método y no afirma nada da el 100 %. Y si un test falla,
+  Maven se para antes: no hay análisis ni informe. Mide <strong>alcance</strong>, no corrección.</p>
+</div>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="01-que-es.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">01 · Qué es SonarQube</span>
+  </a>
+  <a class="next fin" href="03-analisis.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">03 · Cómo se analiza</span>
+  </a>
+</nav>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>

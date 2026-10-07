@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluación — SonarQube · Curso reducido</title>
+<link rel="stylesheet" href="../assets/curso.css">
+</head>
+<body data-home="index.html" data-end="05-cierre.html">
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso reducido</span></a>
+  <span class="pista"><i style="width:60%"></i></span>
+  <span class="cuenta">3 / 5</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<div class="tl-row">
+  <div class="tl">
+    <div class="tl-bar">
+      <a class="tl-seg t1" href="01-que-es.html"          style="--w:6"  title="Min 0–6 · Qué es SonarQube"><b>Qué es</b><i>0–6 min</i></a>
+      <a class="tl-seg t3" href="02-analisis.html"        style="--w:14" title="Min 6–20 · Análisis en vivo → gate en rojo"><b>Análisis</b><i>6–20 min</i></a>
+      <a class="tl-seg t2" href="03-evaluacion.html" aria-current="true" style="--w:13" title="Min 20–33 · Evaluación"><b>Evaluación</b><i>20–33 min</i></a>
+      <a class="tl-seg t4" href="04-corregir.html"        style="--w:20" title="Min 33–53 · Corregir en directo → verde"><b>Corregir</b><i>33–53 min</i></a>
+      <a class="tl-seg t6" href="05-cierre.html"          style="--w:7"  title="Min 53–60 · Cierre"><b>Cierre</b><i>53–60 min</i></a>
+    </div>
+  </div>
+</div>
+
+<main class="slide">
+
+<span class="min">20–33 min</span>
+<h1>Evaluación</h1>
+<p class="lede">Todos los issues son <strong>posibles</strong> problemas de código de
+distinto nivel de criticidad que se pueden corregir.</p>
+
+<div class="grid g4">
+  <div class="card">
+    <h4>Bug <span class="pill bad">Reliability</span></h4>
+    <p>Código probablemente erróneo.</p>
+    <span class="rule">Posible <code>NullPointerException</code> · Código crítico inalcanzable</span>
+  </div>
+  <div class="card">
+    <h4>Vulnerability <span class="pill bad">Security</span></h4>
+    <p>Código que puede provocar errores de datos.</p>
+    <span class="rule"><code>Runtime.exec("ping " + host)</code> con entrada del usuario · <code>SQL inyectado </code> mal escrito</span>
+  </div>
+  <div class="card">
+    <h4>Security Hotspot <span class="pill warn">Revisión humana</span></h4>
+    <p>Código que debe revisar un humano: posible error de lógica o no cumple el estándar.</p>
+    <span class="rule"><code>MessageDigest.getInstance("MD5")</code></span>
+  </div>
+  <div class="card">
+    <h4>Code smell <span class="pill warn">Maintainability</span></h4>
+    <p>Código difícil de leer o mantener.</p>
+    <span class="rule"><code>tipo == "VIP"</code> por <code>equals()</code> · código inalcanzable </span>
+  </div>
+</div>
+
+<p><strong>Severidad:</strong> Blocker › Critical › Major › Minor › Info. Es el impacto
+de la <em>regla</em>, no de tu proyecto.
+<strong>Deuda técnica:</strong> tiempo estimado en arreglarlo.</p>
+
+<div class="callout">
+  <p>Un <strong>hotspot</strong> no tiene por qué ser un error de código: puede serlo
+  de concepto o de lógica de negocio.</p>
+  <p>Los <strong>code smells</strong> no afectan al Quality Gate, aunque sean la mayoría.</p>
+</div>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="02-analisis.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">02 · El análisis en vivo</span>
+  </a>
+  <a class="next fin" href="04-corregir.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">04 · Corregir y re-analizar</span>
+  </a>
+</nav>
+
+<script src="../assets/curso.js"></script>
+</body>
+</html>

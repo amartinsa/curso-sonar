@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corregir y re-analizar — SonarQube · Curso reducido</title>
+<link rel="stylesheet" href="../assets/curso.css">
+</head>
+<body data-home="index.html" data-end="05-cierre.html">
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso reducido</span></a>
+  <span class="pista"><i style="width:80%"></i></span>
+  <span class="cuenta">4 / 5</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<div class="tl-row">
+  <div class="tl">
+    <div class="tl-bar">
+      <a class="tl-seg t1" href="01-que-es.html"            style="--w:6"  title="Min 0–6 · Qué es SonarQube"><b>Qué es</b><i>0–6 min</i></a>
+      <a class="tl-seg t3" href="02-analisis.html"          style="--w:14" title="Min 6–20 · Análisis en vivo → gate en rojo"><b>Análisis</b><i>6–20 min</i></a>
+      <a class="tl-seg t2" href="03-evaluacion.html"        style="--w:13" title="Min 20–33 · Evaluación"><b>Evaluación</b><i>20–33 min</i></a>
+      <a class="tl-seg t4" href="04-corregir.html" aria-current="true" style="--w:20" title="Min 33–53 · Corregir en directo → verde"><b>Corregir</b><i>33–53 min</i></a>
+      <a class="tl-seg t6" href="05-cierre.html"            style="--w:7"  title="Min 53–60 · Cierre"><b>Cierre</b><i>53–60 min</i></a>
+    </div>
+  </div>
+</div>
+
+<main class="slide">
+
+<span class="min">33–53 min</span>
+<h1>Corregir y re-analizar</h1>
+<p class="lede">Tres condiciones para conseguir el gate en verde.</p>
+
+<table>
+  <thead><tr><th>Condición</th><th>De qué vale</th></tr></thead>
+  <tbody>
+    <tr><td><strong>New Bugs</strong> = 0</td><td>Ningún bug nuevo</td></tr>
+    <tr><td><strong>New Vulnerabilities</strong> = 0</td><td>Ninguna vulnerabilidad nueva</td></tr>
+    <tr><td><strong>New Security Hotspots Reviewed</strong> = 100 %</td><td>Todo hotspot revisado</td></tr>
+  </tbody>
+</table>
+
+<p class="small"><strong>NOSONAR</strong> — comentario que excluye esa línea del análisis.</p>
+
+<h3>Re-análisis</h3>
+<pre><code><span class="prompt">PS&gt;</span> mvn clean verify sonar:sonar ``
+    <span class="k">"-Dsonar.host.url=TU-SONARQUBE"</span> ``
+    <span class="k">"-Dsonar.token=squ_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></code></pre>
+
+<div class="callout ok">
+  <p>Resultado esperado: gate en verde.</p>
+  <p>Errores críticos corregidos. Código mejorado. Calidad subiendo.
+  Los code smells y la duplicación siguen ahí, pero eres consciente de que están.</p>
+</div>
+
+<h3>Pestaña Activity</h3>
+<p>Viasualiza el progreso de tu análisis, con gráficas y evolución.</p>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="03-evaluacion.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">03 · Evaluación</span>
+  </a>
+  <a class="next fin" href="05-cierre.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">05 · Cierre</span>
+  </a>
+</nav>
+
+<script src="../assets/curso.js"></script>
+</body>
+</html>

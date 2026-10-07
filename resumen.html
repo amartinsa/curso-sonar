@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SonarQube — Chuleta de una página</title>
+<style>
+:root{
+  --fg:#111827;--soft:#4b5563;--line:#d7dce4;--bg:#fff;
+  --brand:#1d4ed8;--bad:#b91c1c;--warn:#a15c07;--ok:#0f7b52;--tint:#f3f6fa;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#e9edf3;color:var(--fg);
+  font:11.6px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+.sheet{
+  max-width:210mm;min-height:297mm;margin:10mm auto;background:var(--bg);
+  padding:10mm 11mm;box-shadow:0 2px 14px rgba(0,0,0,.14);
+}
+header{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2.5px solid var(--fg);padding-bottom:5px;margin-bottom:9px}
+h1{font-size:19px;margin:0;letter-spacing:-.03em}
+header p{margin:2px 0 0;color:var(--soft);font-size:10.5px}
+.badge{font-size:9px;font-weight:700;background:var(--brand);color:#fff;
+  padding:3px 8px;border-radius:99px;white-space:nowrap}
+h2{
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;margin:12px 0 5px;
+  color:var(--fg);border-bottom:1px solid var(--line);padding-bottom:3px;
+}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 10mm}
+table{width:100%;border-collapse:collapse;font-size:10.5px}
+th,td{text-align:left;padding:3.5px 5px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--tint);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+tr:last-child td{border-bottom:none}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:9.8px;background:var(--tint);padding:.5px 3px;border-radius:3px}
+pre{background:#0f172a;color:#e6edf7;padding:7px 9px;border-radius:5px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:9.7px;
+  line-height:1.45;overflow-x:auto;margin:5px 0;white-space:pre-wrap}
+b.pill{font-size:8.6px;font-weight:800;padding:1px 5px;border-radius:99px;white-space:nowrap}
+.p-bad{background:#fdecec;color:var(--bad)}
+.p-warn{background:#fff4e2;color:var(--warn)}
+ul{margin:4px 0;padding-left:15px}
+li{margin:1.8px 0}
+.note{background:var(--tint);border-left:3px solid var(--brand);padding:6px 9px;
+  border-radius:0 4px 4px 0;margin:6px 0;font-size:10.3px}
+.note.warn{border-color:var(--warn);background:#fff8ee}
+.note.bad{border-color:var(--bad);background:#fdf1f1}
+.note b{display:block;margin-bottom:1px}
+footer{margin-top:10px;padding-top:5px;border-top:1px solid var(--line);
+  color:var(--soft);font-size:9px;display:flex;justify-content:space-between}
+@media print{
+  body{background:#fff}
+  .sheet{box-shadow:none;margin:0;max-width:none;min-height:0;padding:0}
+  @page{size:A4 portrait;margin:9mm}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header>
+  <div>
+    <h1>SonarQube · Chuleta</h1>
+    <p>Todo lo que necesitas tener a mano durante la clase.</p>
+  </div>
+  <span class="badge">Community 10.4 · Java 17</span>
+</header>
+
+<div class="cols">
+<div>
+
+<h2>Los 4 tipos de issue</h2>
+<table>
+<tr><th style="width:33%">Tipo</th><th>Qué significa</th></tr>
+<tr><td><b class="pill p-bad">BUG</b><br>Reliability</td><td>El código hace algo mal <i>hoy</i>. Ej. <code>java:S1206</code>: <code>equals()</code> sin <code>hashCode()</code>.</td></tr>
+<tr><td><b class="pill p-bad">VULNERABILITY</b><br>Security</td><td>Se puede explotar desde fuera. Se detecta <b>siguiendo el dato</b> hasta el punto peligroso. Ej. <code>java:S2076</code>.</td></tr>
+<tr><td><b class="pill p-warn">HOTSPOT</b><br>Revisión humana</td><td>Código sensible. <b>Lo cierra una persona</b>: To Review → Fixed / Safe. Ej. <code>java:S4790</code>: MD5.</td></tr>
+<tr><td>Code smell<br>Maintainability</td><td>No falla, pero cuesta mantener. Es la mayoría en cualquier proyecto.</td></tr>
+</table>
+
+<p style="margin:4px 0"><b>Severidad:</b> Blocker › Critical › Major › Minor › Info.
+Es el impacto de la <i>regla</i>, no de tu proyecto.</p>
+
+<h2>New Code: la idea central</h2>
+<div class="note">
+<b>El gate mira solo lo nuevo</b> desde el último análisis. Tu proyecto puede ser un
+desastre heredado y pasa verde mientras <b>no empeores</b>.
+</div>
+
+<h2>Gate vs Perfil</h2>
+<table>
+<tr><th style="width:33%">Quality Gate</th><th>Quality Profile</th></tr>
+<tr><td>Las <b>condiciones</b> que cumples. Si una falla → <b>rojo</b>.</td><td>El <b>conjunto de reglas activas</b> por lenguaje.</td></tr>
+<tr><td>Se asocia a cada proyecto.</td><td>Cambiarlo no cambia el gate.</td></tr>
+</table>
+
+<h2>Sonar way (por defecto)</h2>
+<ul>
+<li>Cero <b>issues</b> nuevos</li>
+<li>Hotspots nuevos revisados <b>100 %</b></li>
+<li>Cobertura en código nuevo <b>≥ 80 %</b></li>
+<li>Duplicación en código nuevo <b>≤ 3 %</b></li>
+</ul>
+
+<h2>Cobertura · JaCoCo</h2>
+<table>
+<tr><td style="width:37%"><b>Tests</b></td><td>¿<b>funciona</b>? → Maven: falla = build parado</td></tr>
+<tr><td><b>Cobertura</b></td><td>¿<b>se ejecutó</b>? → cuenta las líneas recorridas</td></tr>
+<tr><td><b>SonarQube</b></td><td>¿<b>cumple umbral</b>? → solo <b>lee</b> el XML</td></tr>
+</table>
+<div class="note warn">
+<b>No mide que funcione</b> — un test sin afirmaciones da 100 %. Y si un test falla,
+Maven se para antes: <b>no hay análisis ni informe</b>.
+</div>
+
+</div>
+<div>
+
+<h2>Comando de análisis</h2>
+<pre>cd demo-app
+mvn clean verify sonar:sonar `
+  "-Dsonar.host.url=TU-SONARQUBE" `
+  "-Dsonar.token=squ_XXXXXXXXXXXXXXXXXXX"</pre>
+<p style="margin:3px 0"><b>Comillas obligatorias en PowerShell</b> — sin ellas la
+<code>//</code> de la URL parte el argumento.</p>
+<p style="margin:3px 0"><b>Orden:</b> compilar → tests → informe → analyzer → servidor evalúa.</p>
+
+<div class="note bad">
+<b>La URL y el token nunca van en un fichero.</b> Se pasan por entorno
+(<code>SONAR_HOST_URL</code> / <code>SONAR_TOKEN</code>) o por <code>-D</code> en el momento.
+</div>
+
+<h2>Trampas</h2>
+<table>
+<tr><th style="width:42%">Pasa esto</th><th>Es esto</th></tr>
+<tr><td>Cobertura <b>0 %</b> con tests</td><td>Sonar no encuentra el XML. Log: <code>No report imported</code></td></tr>
+<tr><td>El análisis <b>no corre</b></td><td>Un test falló. El build es el primer gate</td></tr>
+<tr><td>El gate sigue <b>rojo</b></td><td>No se re-analizó, o el hotspot sin revisar</td></tr>
+<tr><td><b>401</b></td><td>Token caducado → generar otro</td></tr>
+<tr><td>Gate <b>verde</b> en el 1er análisis</td><td>El proyecto apunta al gate equivocado</td></tr>
+<tr><td><code>No plugin found for prefix</code></td><td>Falta el plugin en el <code>pom.xml</code>, o falta comillas</td></tr>
+</table>
+
+<div class="note">
+<b>El primer gate en rojo no es un fallo.</b> Es el resultado esperado: está diciendo
+que algo no llega al listón.
+</div>
+
+</div>
+</div>
+
+<footer>
+  <span>Curso 1 h · SonarQube Community 10.4 · <code>demo-app</code> (Java 17, Maven, sin BBDD)</span>
+  <span>Guion en <b>GUION.md</b> · plataforma en <b>PREPARACION.md</b></span>
+</footer>
+
+</div>
+</body>
+</html>

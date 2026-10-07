@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La demo — SonarQube · Curso 1 h</title>
+<link rel="stylesheet" href="assets/curso.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="index.html">SonarQube <span>· Curso 1 h</span></a>
+  <span class="pista"><i style="width:55.6%"></i></span>
+  <span class="cuenta">5 / 9</span>
+  <span class="ayuda"><kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>F</kbd> pantalla completa</span>
+  <button class="btn" id="fsBtn" title="Pantalla completa">⛶</button>
+  <button class="btn" id="tema" title="Cambiar tema">◐</button>
+</header>
+
+<main class="slide">
+
+<span class="min">32–42 min</span>
+<h1>La demo</h1>
+<p class="lede"><code>demo-app/</code> — Java 17, Maven, sin base de datos. Un procesador
+de pedidos escrito a propósito para que el primer análisis salga en rojo.</p>
+
+<table>
+  <thead><tr><th>Qué lleva</th><th>Regla</th><th>Tipo</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>equals()</code> reescrito y <code>hashCode()</code> ausente en <code>Cliente</code></td>
+      <td><code>java:S1206</code></td>
+      <td><span class="pill bad">Bug</span></td>
+    </tr>
+    <tr>
+      <td><code>tipo == "VIP"</code> en vez de <code>equals()</code></td>
+      <td><code>java:S4973</code></td>
+      <td>Code smell</td>
+    </tr>
+    <tr>
+      <td><code>Runtime.exec("ping " + host)</code> con entrada concatenada</td>
+      <td><code>java:S2076</code></td>
+      <td><span class="pill bad">Vulnerability</span></td>
+    </tr>
+    <tr>
+      <td><code>MessageDigest.getInstance("MD5")</code></td>
+      <td><code>java:S4790</code></td>
+      <td><span class="pill warn">Hotspot</span></td>
+    </tr>
+    <tr>
+      <td>Método de 80 líneas, 8 parámetros, código copiado dos veces, números mágicos, <code>System.out</code></td>
+      <td>—</td>
+      <td>Code smells <span class="pill ok">a propósito</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La cobertura arranca en <strong>~26 %</strong>, frente al 60 % que pide el gate del curso.</p>
+
+</main>
+
+<nav class="nav">
+  <a class="prev" href="04-gate.html">
+    <span class="dir">← Anterior</span>
+    <span class="tit">04 · Gate y New Code</span>
+  </a>
+  <a class="next fin" href="06-practica.html">
+    <span class="dir">Siguiente →</span>
+    <span class="tit">06 · Práctica</span>
+  </a>
+</nav>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>
