@@ -328,3 +328,5 @@ No debería. Si pasa, revisa `PREPARACION.md` §3: el proyecto apunta a
 
 `PREPARACION.md` §7: borrar token, borrar proyecto `curso-sonar-demo`, borrar
 **los dos gates** del curso y comprobar que `Sonar way` sigue siendo el Default.
+
+** Probando github pages
